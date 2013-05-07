@@ -105,7 +105,7 @@ trigger 'message new_stuff_for_me' do
 end
 ````
 
-#### Webhook Trigger
+##### Webhook Trigger
 Web hook trigger allow you to trigger an action by hitting an http end-point. Standard REST conventions are followed, so that you can pass data to ForemanCID via the webook.
 ````ruby
 trigger 'webhook_for_me' do
