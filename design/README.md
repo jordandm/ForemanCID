@@ -1,15 +1,15 @@
 # ForemanCID
-## Overview
+### Overview
 ForemanCID is a Continuous Integration (CI) and Deployment (CD) server based on a Ruby DSL. Using the Foreman DSL you describe a 'recipe' for building a project.
 
-## Foreman DSL
+### Foreman DSL
 The Foreman DSL is inspired by, and steals shamelessly, from the Chef DSL. This is intentional and
 is done to make it easy for users of Chef to use ForemanCID and extend it.
 
 ## Foreman Providers
 ForemanCID has the following standard providers which **are not** part of the Chef providers.
 
-### Trigger
+#### Trigger
 The `trigger` provider defines the events which trigger a recipe.  The standard trigger events are *timer*, *repo*, *file*, *directory*, *message*, and *web_hook*.
 
 ##### Timer Trigger
@@ -119,25 +119,17 @@ trigger 'webhook_for_me' do
 
 Each project has an event queue. When a trigger event is observed by ForemanCID
 
-### Perquisite
+#### Perquisite
 The `perquisite` provider defines a resources which is required to run a recipe.
 
-### Consume
+#### Consume
 The `consume` provider allows a recipe to consume event that were published elsewhere.
 
-### Produce
+#### Produce
 The `produce` provider allows a recipe to publish or produce events that will be handle elsewhere.
 
-### Build
+#### Build
 The `build` provider defines a build step to be run in a recipe.
 
-### Package
+#### Package
 The `package` provider defines a packaging process to be used by a recipe. 
-
-
-
-
-
-
-
-
