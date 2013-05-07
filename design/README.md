@@ -107,8 +107,11 @@ Each project has an event queue. When a trigger event is observed by ForemanCD
 ### Perquisite
 The `perquisite` provider defines a resources which is required to run a recipe.
 
-### Handle
-The `handle` provider defines how the recipes handles the trigger events it receieves.
+### Consume
+The `consume` provider allows a recipe to consume event that were published elsewhere.
+
+### Produce
+The `produce` provider allows a recipe to publish or produce events that will be handle elsewhere.
 
 ### Build
 The `build` provider defines a build step to be run in a recipe.
