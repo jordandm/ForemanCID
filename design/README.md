@@ -12,7 +12,7 @@ ForemanCID has the following standard providers which **are not** part of the Ch
 ### Trigger
 The `trigger` provider defines the events which trigger a recipe.  The standard trigger events are *timer*, *repo*, *file*, *directory*, *message*, and *web_hook*.
 
-#### Timer Trigger
+##### Timer Trigger
 Timer triggers allow you to trigger an action on a periodic basis. 
 ````ruby
 # Each time a cron alarm occurs, we will create an event message. If handle is :last, when
@@ -28,7 +28,7 @@ trigger 'It is 0530 PST' do
 end
 ````
 
-#### Repo Trigger
+##### Repo Trigger
 Repo triggers allow you to trigger an action when a repo changes. You need to specify the type of repo (git, etc.) in the `when` clause. 
 
 Initially, we will only be supporting git, but the Repo class can be subclassed and extended to support other repo types.
@@ -54,7 +54,7 @@ trigger 'Foremancid head of master updated' do
 end
 ````
 
-#### Directory Trigger
+##### Directory Trigger
 Directory triggers allow you to trigger an action when a directory changes. YOu can filter changes on a regex.
 ````ruby
 # It is possible that directory changes will be unobserved, if they occur within the frequency
@@ -71,7 +71,7 @@ trigger 'directory /Foremancid/artifacts/foreman_builds/ update' do
 end
 ````
 
-##### File Trigger
+###### File Trigger
 File triggers allow you to trigger an action when a file changes. You can filter changes based on a regex.
 ````ruby
 # It is possible that file changes will be unobserved, if they occur within the frequency
