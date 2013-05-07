@@ -35,7 +35,7 @@ Initially, we will only be supporting git, but the Repo class can be subclassed 
 ````ruby
 # If we are repo check is a poll, then we will get a list of changes committed since our last
 # check and either create a message for each one or only for the last one made.
-trigger 'foremancd head of master updated' do
+trigger 'Foremancid head of master updated' do
   when repo_git do
     name 'foremancid'
     remote 'mygitrepo.domain.com'
@@ -59,9 +59,9 @@ Directory triggers allow you to trigger an action when a directory changes. YOu 
 ````ruby
 # It is possible that directory changes will be unobserved, if they occur within the frequency
 # of directory change checks on the same file in the directory.
-trigger 'directory /foremancd/artifacts/foreman_builds/ update' do
+trigger 'directory /Foremancid/artifacts/foreman_builds/ update' do
   when directory do
-    path '/foremancd/artifacts/foreman_builds'
+    path '/Foremancid/artifacts/foreman_builds'
     frequency ['*/5 * * * *']
     context \RegEx\
     handle :all # :all or :last, do we trigger a run for all changes or only the last?
@@ -76,9 +76,9 @@ File triggers allow you to trigger an action when a file changes. You can filter
 ````ruby
 # It is possible that file changes will be unobserved, if they occur within the frequency
 # of file change checks.
-trigger 'file /foremancd/artifacts/foreman_builds/build_list update' do
+trigger 'file /Foremancid/artifacts/foreman_builds/build_list update' do
   when directory do
-    file '/foremancd/artifacts/foreman_builds/build_list update'
+    file '/Foremancid/artifacts/foreman_builds/build_list update'
     frequency ['*10 * * * *'] # How frequently do we check for changes?
     content \RegEx\
     handle :last # :all or :last, do we trigger a run for all changes we observed or only the last?
@@ -105,7 +105,19 @@ trigger 'message new_stuff_for_me' do
 end
 ````
 
-Each project has an event queue. When a trigger event is observed by ForemanCD 
+#### Webhook Trigger
+Web hook trigger allow you to trigger an action by hitting an http end-point. Standard REST conventions are followed, so that you can pass data to ForemanCID via the webook.
+````ruby
+trigger 'webhook_for_me' do
+  when webhook do
+    endpoint 'foremancid.host.com/first_name/second_name/third_name/' #Define arbitrary endpoint
+    handle :last # :all or :last, do we handle all of the webhook requests or just the last received.
+  end
+  notify {:service_1 => :message, :sevice_2 => :message}
+  notify 
+````
+
+Each project has an event queue. When a trigger event is observed by ForemanCID
 
 ### Perquisite
 The `perquisite` provider defines a resources which is required to run a recipe.
